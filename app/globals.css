@@ -1,26 +1,408 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  cursor: none !important;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-warmCream: #F4F1EA;
+  --color-darkBrutal: #16110D;
+  --color-neonOrange: #FF6A13;
+  --color-burntOrange: #C2410C;
+  --color-accentLime: #A3E635;
+  --color-sandMuted: #EAE5DB;
+  --color-charcoalCard: #1F1A16;
+
+  --color-warm-cream: #F4F1EA;
+  --color-dark-brutal: #16110D;
+  --color-neon-orange: #FF6A13;
+  --color-burnt-orange: #C2410C;
+  --color-accent-lime: #A3E635;
+  --color-sand-muted: #EAE5DB;
+  --color-charcoal-card: #1F1A16;
+
+  --font-syne: 'Syne', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Custom Typography Helper Classes */
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-serif-italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Color Fallbacks and Overrides */
+.bg-warmCream {
+  background-color: #F4F1EA;
+}
+
+.bg-darkBrutal {
+  background-color: #16110D;
+}
+
+.bg-neonOrange {
+  background-color: #FF6A13;
+}
+
+.bg-burntOrange {
+  background-color: #C2410C;
+}
+
+.bg-accentLime {
+  background-color: #A3E635;
+}
+
+.bg-sandMuted {
+  background-color: #EAE5DB;
+}
+
+.bg-charcoalCard {
+  background-color: #1F1A16;
+}
+
+.text-warmCream {
+  color: #F4F1EA;
+}
+
+.text-darkBrutal {
+  color: #16110D;
+}
+
+.text-neonOrange {
+  color: #FF6A13;
+}
+
+.text-burntOrange {
+  color: #C2410C;
+}
+
+.text-accentLime {
+  color: #A3E635;
+}
+
+.text-sandMuted {
+  color: #EAE5DB;
+}
+
+.border-darkBrutal {
+  border-color: #16110D;
+}
+
+.border-neonOrange {
+  border-color: #FF6A13;
+}
+
+.border-burntOrange {
+  border-color: #C2410C;
+}
+
+.border-accentLime {
+  border-color: #A3E635;
+}
+
+/* Specificity Fix: Ensure Hover and Group Hover Text Color Takes Absolute Priority */
+.hover\:text-white:hover {
+  color: #FFFFFF !important;
+}
+
+.group:hover .group-hover\:text-white {
+  color: #FFFFFF !important;
+}
+
+.hover\:text-neonOrange:hover {
+  color: #FF6A13 !important;
+}
+
+.group:hover .group-hover\:text-neonOrange {
+  color: #FF6A13 !important;
+}
+
+.hover\:text-darkBrutal:hover {
+  color: #16110D !important;
+}
+
+.group:hover .group-hover\:text-darkBrutal {
+  color: #16110D !important;
+}
+
+/* Grid Patterns */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(22, 17, 13, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 17, 13, 0.045) 1px, transparent 1px);
+}
+
+.bg-dark-grid {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Brutalist Sticker Box Shadows */
+.sticker-shadow {
+  box-shadow: 4px 4px 0px #16110D;
+}
+
+.sticker-shadow-orange {
+  box-shadow: 4px 4px 0px #FF6A13;
+}
+
+.sticker-shadow-white {
+  box-shadow: 4px 4px 0px #FFFFFF;
+}
+
+.sticker-shadow-sm {
+  box-shadow: 2px 2px 0px #16110D;
+}
+
+.hover\:sticker-shadow-orange:hover {
+  box-shadow: 4px 4px 0px #FF6A13 !important;
+}
+
+/* Torn Paper Effect Mask */
+.torn-paper-edge {
+  clip-path: polygon(0% 0%, 3% 18px, 6% 3px, 9% 22px, 12% 5px, 15% 19px, 18% 4px, 21% 21px,
+      24% 6px, 27% 20px, 30% 5px, 33% 18px, 36% 4px, 39% 22px, 42% 6px, 45% 20px,
+      48% 5px, 51% 19px, 54% 3px, 57% 21px, 60% 6px, 63% 19px, 66% 4px, 69% 20px,
+      72% 5px, 75% 22px, 78% 6px, 81% 18px, 84% 4px, 87% 21px, 90% 5px, 93% 19px,
+      96% 4px, 99% 20px, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* Figma / Illustrator Bounding Box Handles */
+.handle-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #FFFFFF;
+  border: 1.5px solid #FF6A13;
+  position: absolute;
+  z-index: 30;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.handle-dot:hover {
+  transform: scale(1.4);
+  background-color: #FF6A13;
+}
+
+.handle-tl {
+  top: -4.5px;
+  left: -4.5px;
+}
+
+.handle-tm {
+  top: -4.5px;
+  left: calc(50% - 4.5px);
+}
+
+.handle-tr {
+  top: -4.5px;
+  right: -4.5px;
+}
+
+.handle-ml {
+  top: calc(50% - 4.5px);
+  left: -4.5px;
+}
+
+.handle-mr {
+  top: calc(50% - 4.5px);
+  right: -4.5px;
+}
+
+.handle-bl {
+  bottom: -4.5px;
+  left: -4.5px;
+}
+
+.handle-bm {
+  bottom: -4.5px;
+  left: calc(50% - 4.5px);
+}
+
+.handle-br {
+  bottom: -4.5px;
+  right: -4.5px;
+}
+
+/* Micro-Animations & Floating Keyframes */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulseSubtle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes floatGentle1 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-6deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-4deg);
+  }
+}
+
+@keyframes floatGentle2 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(3deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(5deg);
+  }
+}
+
+@keyframes floatGentle3 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(6deg);
+  }
+
+  50% {
+    transform: translateY(-9px) rotate(4deg);
+  }
+}
+
+@keyframes floatGentle4 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(-1deg);
+  }
+}
+
+@keyframes floatGentle5 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-6deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-8deg);
+  }
+}
+
+@keyframes floatCard {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(2deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 18s linear infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 24s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float-1 {
+  animation: floatGentle1 5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatGentle2 6s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floatGentle3 5.5s ease-in-out infinite;
+}
+
+.animate-float-4 {
+  animation: floatGentle4 6.5s ease-in-out infinite;
+}
+
+.animate-float-5 {
+  animation: floatGentle5 5s ease-in-out infinite;
+}
+
+.animate-float-card {
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F1EA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16110D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6A13;
 }
